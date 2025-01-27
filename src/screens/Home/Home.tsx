@@ -18,20 +18,20 @@ const Home = () => {
             }
 
         }
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML';
-        script.async = true;
-        document.head.appendChild(script);
+        // const script = document.createElement('script');
+        // script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML';
+        // script.async = true;
+        // document.head.appendChild(script);
 
-        script.onload = () => {
-            window.MathJax.Hub.Config({
-                tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-            });
-        };
+        // script.onload = () => {
+        //     window.MathJax.Hub.Config({
+        //         tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+        //     });
+        // };
 
-        return () => {
-            document.head.removeChild(script);
-        };
+        // return () => {
+        //     document.head.removeChild(script);
+        // };
 
     }, []);
 
@@ -56,7 +56,7 @@ const Home = () => {
         if (canvas) {
             const ctx = canvas.getContext('2d');
             if (ctx) {
-                ctx.strokeStyle = color;
+                ctx.strokeStyle = 'white';
                 ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
                 ctx.stroke();
             }
@@ -68,8 +68,13 @@ const Home = () => {
     };
 
     return (
-        <canvas ref={canvasRef} id='canvas' className="absolute top-0 left-0 w-full h-full" onMouseUp={stopDrawing}
-            onMouseOut={stopDrawing} onMouseDown={startDrawing} onMouseMove={draw}>
+        <canvas ref={canvasRef} 
+        id='canvas' 
+        className="absolute top-0 left-0 w-full h-full" 
+        onMouseUp={stopDrawing}
+        onMouseOut={stopDrawing} 
+        onMouseDown={startDrawing} 
+        onMouseMove={draw}>
 
         </canvas>
     );
